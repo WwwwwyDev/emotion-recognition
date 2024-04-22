@@ -12,13 +12,16 @@ class FaceDataset(data.Dataset):
         img = list(df["pixels"])
         for index, element in enumerate(img):
             img[index] = list(map(int, element.split(" ")))
-        self.img = np.array(img, dtype=np.float32)
+        self.img = np.array(img, dtype='uint8')
         if not is_test:
             self.label = np.array(df["emotion"])
+        self.is_test = is_test
 
     # 读取某幅图片，item为索引号
     def __getitem__(self, index):
         x = torch.from_numpy(self.img[index]).reshape(1, 48, 48) / 255.0
+        if self.is_test:
+            return x
         y = torch.tensor(self.label[index])
         return x, y
 
@@ -38,10 +41,13 @@ class FaceDatasetMLU(data.Dataset):
         self.img = np.array(img, dtype='uint8')
         if not is_test:
             self.label = np.array(df["emotion"])
+        self.is_test = is_test
 
     # 读取某幅图片，item为索引号
     def __getitem__(self, index):
         x = torch.from_numpy(self.img[index]).reshape(1, 48, 48) / 255.0
+        if self.is_test:
+            return x.to("mlu")
         y = torch.tensor(self.label[index])
         return x.to("mlu"), y.to("mlu")
 
