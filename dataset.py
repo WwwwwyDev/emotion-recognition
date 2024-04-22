@@ -21,7 +21,7 @@ class FaceDataset(data.Dataset):
     def __getitem__(self, index):
         x = torch.from_numpy(self.img[index]).reshape(1, 48, 48) / 255.0
         if self.is_test:
-            return x
+            return x.reshape(1, 1, 48, 48)
         y = torch.tensor(self.label[index])
         return x, y
 
@@ -47,7 +47,7 @@ class FaceDatasetMLU(data.Dataset):
     def __getitem__(self, index):
         x = torch.from_numpy(self.img[index]).reshape(1, 48, 48) / 255.0
         if self.is_test:
-            return x.to("mlu")
+            return x.reshape(1, 1, 48, 48).to("mlu")
         y = torch.tensor(self.label[index])
         return x.to("mlu"), y.to("mlu")
 

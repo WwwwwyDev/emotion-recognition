@@ -1,12 +1,24 @@
 from dataset import FaceDataset
 import torch
 from net import MobileNet
+import numpy as np
+import csv
+
 if __name__ == '__main__':
+    data = [
+        ['ID', 'Emotion'],
+    ]
     test_dataset = FaceDataset(csv_path="./expertclass2/train_data.csv", is_test=True)
-    net = torch.load("./emotion_model.pt")
+    net = MobileNet()
+    checkpoint = torch.load("./emotion_model.pt", map_location="cpu")
+    net.load_state_dict(checkpoint)
     net.eval()
-    for x in test_dataset[:2]:
+    for i, x in enumerate(test_dataset):
         y = net(x)
-        print(y)
-    # pred = np.argmax(pred.data.numpy(), axis=1)
-    # labels = labels.data.numpy()
+        pred = np.argmax(y.data.numpy(), axis=1)[0]
+        data.append([i, pred])
+    filename = 'submit.csv'
+    with open(filename, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(data)
+
