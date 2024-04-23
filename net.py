@@ -118,3 +118,50 @@ class MobileNetV3Large(nn.Module):
         out = self.model(out)
         out = self.fn(out)
         return out
+
+
+class Vgg19(nn.Module):
+    def __init__(self, num_classes=7, in_channels=1):
+        super(Vgg19, self).__init__()
+        self.name = 'Vgg19'
+        self.stage = nn.Sequential(nn.Conv2d(in_channels, 3, kernel_size=3, stride=1, padding=1),
+                                   nn.BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True),
+                                   nn.ReLU6(inplace=True))
+        self.model = nn.Sequential(*list(models.vgg19().children())[:-1])
+        self.fn = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(in_features=25088, out_features=4096, bias=True),
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=0.5, inplace=False),
+            nn.Linear(in_features=4096, out_features=4096, bias=True),
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=0.5, inplace=False),
+            nn.Linear(in_features=4096, out_features=7, bias=True)
+        )
+
+    def forward(self, x):
+        out = self.stage(x)
+        out = self.model(out)
+        out = self.fn(out)
+        return out
+
+
+class ResNet50(nn.Module):
+    def __init__(self, num_classes=7, in_channels=1):
+        super(ResNet50, self).__init__()
+        self.name = 'ResNet50'
+        self.stage = nn.Sequential(nn.Conv2d(in_channels, 3, kernel_size=3, stride=1, padding=1),
+                                   nn.BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True),
+                                   nn.ReLU6(inplace=True))
+        self.model = nn.Sequential(*list(models.resnet50().children())[:-1])
+        self.fn = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(in_features=2048, out_features=num_classes, bias=True)
+        )
+
+    def forward(self, x):
+        out = self.stage(x)
+        out = self.model(out)
+        out = self.fn(out)
+        return out
+
