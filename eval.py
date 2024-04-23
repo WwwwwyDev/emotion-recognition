@@ -9,7 +9,7 @@ if __name__ == '__main__':
         ['ID', 'Emotion'],
     ]
     test_dataset = FaceDataset(csv_path="./expertclass2/test_data.csv", is_test=True)
-    net = MobileNet()
+    net = MobileNetV3Large()
     checkpoint = torch.load(f"./{net.name}.pt", map_location="cpu")
     net.load_state_dict(checkpoint)
     net.eval()

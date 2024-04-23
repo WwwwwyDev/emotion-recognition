@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 from dataset import FaceDataset
-from net import MobileNet, MobileNetV2, MobileNetV3Large, MobileNetV3Small
+from net import MobileNet, MobileNetV2, MobileNetV3Large, MobileNetV3Small,  Vgg19, ResNet50
 
 
 def train(train_dataset, batch_size, epochs, learning_rate, wt_decay):
