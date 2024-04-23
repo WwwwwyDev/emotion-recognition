@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 from dataset import FaceDatasetMLU
-from net import MobileNet
+from net import MobileNet, MobileNetV2, MobileNetV3Large, MobileNetV3Small
 
 import torch_mlu
 import os
