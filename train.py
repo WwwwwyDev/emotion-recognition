@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 from dataset import FaceDataset
-from net import MobileNet
+from net import MobileNet, MobileNetV2, MobileNetV3Large, MobileNetV3Small
 
 
 def train(train_dataset, batch_size, epochs, learning_rate, wt_decay):
@@ -37,8 +37,8 @@ def train(train_dataset, batch_size, epochs, learning_rate, wt_decay):
         # 打印每轮的损失
         print('After {} epochs , the loss_rate is : '.format(epoch + 1), loss_rate.item())
         if epoch % 5 == 0:
-            torch.save(model.state_dict(), "emotion_model.pt")
-    torch.save(model.state_dict(), "emotion_model.pt")
+            torch.save(model.state_dict(), f"{model.name}.pt")
+    torch.save(model.state_dict(), f"{model.name}.pt")
 
 
 if __name__ == '__main__':

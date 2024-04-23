@@ -45,17 +45,13 @@ def train(train_dataset, batch_size, epochs, learning_rate, wt_decay):
         print('After {} epochs , the loss_rate is : '.format(epoch + 1), loss_rate.item())
         if epoch % 5 == 0:
             text = ','.join(loss_record)
-            #打开一个txt文件，使用写入模式（&#x27;w'）
-            with open('loss.txt', 'w') as file:
-                # 使用文件对象的write()方法将字符串写入文件
+            with open(f"{model.name}_loss.txt", 'w') as file:
                 file.write(text)
-            torch.save(model.state_dict(), "emotion_model.pt")
+            torch.save(model.state_dict(), f"{model.name}.pt")
     text = ','.join(loss_record)
-    #打开一个txt文件，使用写入模式（&#x27;w'）
-    with open('loss.txt', 'w') as file:
-        # 使用文件对象的write()方法将字符串写入文件
+    with open(f"{model.name}_loss.txt", 'w') as file:
         file.write(text)
-    torch.save(model.state_dict(), "emotion_model.pt")
+    torch.save(model.state_dict(), f"{model.name}.pt")
 
 
 if __name__ == '__main__':
