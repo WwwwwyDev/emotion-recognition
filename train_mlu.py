@@ -15,7 +15,7 @@ os.putenv('MLU_VISIBLE_DEVICES', '0')
 
 def train(train_dataset, batch_size, epochs, learning_rate, wt_decay):
     # 载入数据并分割batch
-    train_loader = data.DataLoader(train_dataset, batch_size, shuffle=True, shuffle=True)
+    train_loader = data.DataLoader(train_dataset, batch_size, shuffle=True)
     # 构建模型
     model = MobileNet().to("mlu")
     # 损失函数
