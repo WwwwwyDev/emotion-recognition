@@ -14,13 +14,12 @@ if __name__ == '__main__':
     net.load_state_dict(checkpoint)
     net.eval()
     for i, x in enumerate(test_dataset):
-        print(x.shape)
         y = net(x)
         pred = np.argmax(y.data.numpy(), axis=1)[0]
         data.append([i, pred])
-        print(i)
-    filename = 'submit.csv'
-    with open(filename, 'w', newline='') as file:
+        if i and i % 100 == 0:
+            print(i)
+    with open(f'submit{net.name}.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(data)
 
