@@ -10,7 +10,7 @@ from net import MobileNet, MobileNetV2, MobileNetV3Large, MobileNetV3Small
 
 def train(train_dataset, batch_size, epochs, learning_rate, wt_decay):
     # 载入数据并分割batch
-    train_loader = data.DataLoader(train_dataset, batch_size)
+    train_loader = data.DataLoader(train_dataset, batch_size, shuffle=True)
     # 构建模型
     model = MobileNet()
     # 损失函数
