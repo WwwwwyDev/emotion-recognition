@@ -24,24 +24,24 @@ https://www.kaggle.com/competitions/expertclass2
 
 ### MobileNetV1
 
-<img width=480 src="./image/MobileNetV1_loss.svg" alt="MobileNetV1_loss">
+![MobileNetV1_loss](./image/MobileNetV1_loss.svg)
 
 ### MobileNetV2
 
-<img width=480 src="./image/MobileNetV2_loss.svg" alt="MobileNetV2_loss">
+![MobileNetV2_loss](./image/MobileNetV2_loss.svg)
 
 ### MobileNetV3Large
 
-<img width=480 src="./image/MobileNetV3Large_loss.svg" alt="MobileNetV3Large_loss">
+![MobileNetV3Large_loss](./image/MobileNetV3Large_loss.svg)
 
 ### MobileNetV3Small
 
-<img width=480 src="./image/MobileNetV3Small_loss.svg" alt="MobileNetV3Small_loss">
+![MobileNetV3Small_loss](./image/MobileNetV3Small_loss.svg)
 
 ### Vgg19
 
-<img width=480 src="./image/Vgg19_loss.svg" alt="Vgg19_loss">
+![Vgg19_loss](./image/Vgg19_loss.svg)
 
 ### ResNet50
 
-<img width=480 src="./image/ResNet50_loss.svg" alt="ResNet50_loss">
+![ResNet50_loss](./image/ResNet50_loss.svg)
