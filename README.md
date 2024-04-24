@@ -1,6 +1,7 @@
-# emotion-recognition
+<p align="center">
+<img src="https://socialify.git.ci/WwwwwyDev/emotion-recognition/image?description=1&language=1&name=1&owner=1&stargazers=1&theme=Light" alt="emotion-recognition" width="640" height="320" />
+</p>
 
-Expression recognition based on pytorch
 
 ## competiton
 
@@ -23,24 +24,24 @@ https://www.kaggle.com/competitions/expertclass2
 
 ### MobileNetV1
 
-<img width=280 src="./image/MobileNetV1_loss.svg" alt="MobileNetV1_loss">
+<img width=480 src="./image/MobileNetV1_loss.svg" alt="MobileNetV1_loss">
 
 ### MobileNetV2
 
-<img width=280 src="./image/MobileNetV2_loss.svg" alt="MobileNetV2_loss">
+<img width=480 src="./image/MobileNetV2_loss.svg" alt="MobileNetV2_loss">
 
 ### MobileNetV3Large
 
-<img width=280 src="./image/MobileNetV3Large_loss.svg" alt="MobileNetV3Large_loss">
+<img width=480 src="./image/MobileNetV3Large_loss.svg" alt="MobileNetV3Large_loss">
 
 ### MobileNetV3Small
 
-<img width=280 src="./image/MobileNetV3Small_loss.svg" alt="MobileNetV3Small_loss">
+<img width=480 src="./image/MobileNetV3Small_loss.svg" alt="MobileNetV3Small_loss">
 
 ### Vgg19
 
-<img width=280 src="./image/Vgg19_loss.svg" alt="Vgg19_loss">
+<img width=480 src="./image/Vgg19_loss.svg" alt="Vgg19_loss">
 
 ### ResNet50
 
-<img width=280 src="./image/ResNet50_loss.svg" alt="ResNet50_loss">
+<img width=480 src="./image/ResNet50_loss.svg" alt="ResNet50_loss">
