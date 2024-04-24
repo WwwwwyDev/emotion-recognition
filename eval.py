@@ -1,6 +1,6 @@
 from dataset import FaceDataset
 import torch
-from net import MobileNet, MobileNetV2, MobileNetV3Large, MobileNetV3Small
+from net import MobileNet, MobileNetV2, MobileNetV3Large, MobileNetV3Small, Vgg19, ResNet50
 import numpy as np
 import csv
 
@@ -9,7 +9,7 @@ if __name__ == '__main__':
         ['ID', 'Emotion'],
     ]
     test_dataset = FaceDataset(csv_path="./expertclass2/test_data.csv", is_test=True)
-    net = MobileNetV3Large()
+    net = ResNet50()
     checkpoint = torch.load(f"./{net.name}.pt", map_location="cpu")
     net.load_state_dict(checkpoint)
     net.eval()
