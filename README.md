@@ -45,3 +45,6 @@ https://www.kaggle.com/competitions/expertclass2
 ### ResNet50
 
 ![ResNet50_loss](./image/ResNet50_loss.svg)
+
+## pre-training model
+链接: https://pan.baidu.com/s/17PHhqqfxEtPjw-vQvUsCRQ?pwd=cwpt 提取码: cwpt 
